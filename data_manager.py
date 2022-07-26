@@ -18,13 +18,14 @@ class DataManager:
         data = response.json()
         return data
 
-    def sheety_put_request(self, row_id: int, iata_code: str, flight_id: str, price_pln: str):
+    def sheety_put_request(self, row_id: int, iata_code: str, link: str, price_pln: float, all_data: str):
         """Function to update flight data"""
         params = {
             "loty": {
                 "cityToIata": iata_code,
-                "flightId": flight_id,
+                "flightLink": link,
                 "pricePln": price_pln,
+                "flightData": all_data,
             }
         }
         response = requests.put(url=f"{self.ENDPOINT}/{row_id}", json=params)

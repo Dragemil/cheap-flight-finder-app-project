@@ -33,7 +33,7 @@ for flight_data in sheet_data["loty"]:
         nights_from=flight_data["nightsCountFrom"],
         nights_to=flight_data["nightsCountTo"])
     try:
-        flight_id = flight_details[0]["id"]
+        link = flight_details[0]["deep_link"]
         price = flight_details[0]["price"]
         outbound_date = flight_details[0]["route"][0]["local_departure"]
         inbound_date = flight_details[0]["route"][1]["local_departure"]
@@ -44,4 +44,5 @@ for flight_data in sheet_data["loty"]:
             sheet_data_manager.sheety_put_request(flight_data["id"],
                                                   iata_code=flight_data["cityToIata"],
                                                   price_pln=price,
-                                                  flight_id=flight_id)
+                                                  link=link,
+                                                  all_data=str(flight_details[0]))
