@@ -1,8 +1,7 @@
 # Import necessary libraries
 import os
+
 import requests
-from datetime import datetime, timedelta
-from dateutil.relativedelta import relativedelta
 
 # Constants
 KIWI_API_KEY = os.getenv("KIWI_API_KEY")
